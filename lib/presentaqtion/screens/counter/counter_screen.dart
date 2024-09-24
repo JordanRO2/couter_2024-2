@@ -35,14 +35,41 @@ class _CounterScreenState extends State<CounterScreen> {
           )
         ],
       )),
-      floatingActionButton: FloatingActionButton(
-          shape: const StadiumBorder(),
-          onPressed: () {
-            setState(() {
-              clickCounter += 1;
-            });
-          },
-          child: const Icon(Icons.plus_one_sharp)),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                clickCounter += 1;
+              });
+            },
+            child: const Icon(Icons.plus_one),
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                clickCounter -= 1;
+              });
+            },
+            child: const Icon(Icons.exposure_minus_1),
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                clickCounter = 0;
+              });
+            },
+            child: const Icon(Icons.refresh_rounded),
+          )
+        ],
+      ),
     );
   }
 }
